@@ -5,6 +5,7 @@
 
 struct Edge {
     int val = 0;
+    int max = 0;
 };
 
 class AdjacencyMatrix final {
@@ -46,6 +47,11 @@ public:
             if (matrixPtr->at(row, vertex))
                 return true;
         return false;
+    }
+
+    void removeEdge(unsigned int start, unsigned int end) {
+        delete matrixPtr->at(start, end);
+        matrixPtr->at(start, end) = nullptr;
     }
 
 private:

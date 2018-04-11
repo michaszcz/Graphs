@@ -10,11 +10,14 @@ public:
 private:
     void init();
 
+    void onGenerateBtn(wxCommandEvent &);
+    void setMaxFlow(unsigned int val);
+
     MainPanel *mainPanel;
     wxTextCtrl *totalLayers;
-    unsigned int layersVal;
+    wxStaticText *maxFlowText;
 
-    void onGenerateBtn(wxCommandEvent &);
+    unsigned int layersVal;
 
     enum {
         GENERATE_BTN = wxID_HIGHEST + 1,

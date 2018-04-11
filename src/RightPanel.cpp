@@ -29,11 +29,22 @@ void RightPanel::init() {
                                     _T("Wygeneruj sieć przepływową"));
     vbox->Add(generateBtn, 0, wxALL | wxCENTER, 10);
 
+    auto text2 = new wxStaticText(this, wxID_ANY, _T("Maksymalny przepływ wynosi: "));
+    vbox->Add(text2, 0, wxALL | wxCENTER, 10);
+
+    maxFlowText = new wxStaticText(this, wxID_ANY, _T(""));
+    vbox->Add(maxFlowText, 0, wxALL | wxCENTER);
+
     this->SetSizer(vbox);
 }
 
 void RightPanel::onGenerateBtn(wxCommandEvent &) {
     if (Validate() && TransferDataFromWindow())
-        mainPanel->createNetwork(layersVal);
+        setMaxFlow(mainPanel->createNetwork(layersVal));
+}
+
+void RightPanel::setMaxFlow(unsigned int val) {
+    maxFlowText->SetLabelText(wxString(std::to_string(val)));
+    GetParent()->Refresh();
 }
 

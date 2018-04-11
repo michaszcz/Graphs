@@ -7,7 +7,7 @@ class MainPanel : public wxPanel {
 public:
     MainPanel(wxFrame *parent);
 
-    void createNetwork(unsigned int);
+    unsigned int createNetwork(unsigned int);
 
     void draw(wxDC &dc) const;
 private:

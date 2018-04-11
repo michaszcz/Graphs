@@ -20,7 +20,7 @@ void MainPanel::onPaint(wxPaintEvent &) {
     draw(dc);
 }
 
-void MainPanel::createNetwork(unsigned int totalLayers) {
+unsigned int MainPanel::createNetwork(unsigned int totalLayers) {
     this->network = std::make_unique<FlowNetwork>(totalLayers);
-    Refresh();
+    return this->network->fordFulkerson();
 }
