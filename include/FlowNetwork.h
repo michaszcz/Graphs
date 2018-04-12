@@ -25,6 +25,8 @@ public:
 
     unsigned int fordFulkerson();
 
+    void saveToFile(const char *filename) const;
+
 private:
     void drawVertex(wxDC &dc, const wxPoint &p, const wxString &label,
                     int radius = 15) const;

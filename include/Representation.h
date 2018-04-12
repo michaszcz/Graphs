@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <fstream>
 #include "Matrix.h"
 
 struct Edge {
@@ -52,6 +53,24 @@ public:
     void removeEdge(unsigned int start, unsigned int end) {
         delete matrixPtr->at(start, end);
         matrixPtr->at(start, end) = nullptr;
+    }
+
+    void saveToFile(const char *filename) const {
+        std::ofstream file(filename);
+
+        for (size_t i = 0; i < size(); ++i) {
+            for (size_t j = 0; j < size(); ++j) {
+                Edge *edge = matrixPtr->at(i, j);
+                if (edge)
+                    file << edge->max;
+                else
+                    file << 0;
+                file << " ";
+            }
+            file << std::endl;
+        }
+
+        file.close();
     }
 
 private:

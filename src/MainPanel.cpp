@@ -22,5 +22,6 @@ void MainPanel::onPaint(wxPaintEvent &) {
 
 unsigned int MainPanel::createNetwork(unsigned int totalLayers) {
     this->network = std::make_unique<FlowNetwork>(totalLayers);
+    this->network->saveToFile("Graph.txt");
     return this->network->fordFulkerson();
 }

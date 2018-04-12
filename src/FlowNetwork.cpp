@@ -234,3 +234,7 @@ bool FlowNetwork::bfs(AdjacencyMatrix &graph, unsigned int path[]) {
 
     return visited[totalVertices - 1];
 }
+
+void FlowNetwork::saveToFile(const char *filename) const {
+    adjMatrix->saveToFile(filename);
+}
