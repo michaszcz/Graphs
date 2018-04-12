@@ -63,12 +63,6 @@ FlowNetwork::FlowNetwork(unsigned int N) : N(N) {
         unsigned int rveIdx = idxOfVertexFromLayer(randomLayerEnd,
                                                    randomVertexEnd);
 
-        if (random(0, 1)) {
-            unsigned int tmp = rveIdx;
-            rveIdx = rvsIdx;
-            rvsIdx = tmp;
-        }
-
         if (rvsIdx == totalVertices - 1 || rveIdx == 0 || rvsIdx == rveIdx)
             continue;
 
