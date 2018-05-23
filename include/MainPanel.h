@@ -1,6 +1,6 @@
 #pragma once
 
-#include <wx/wxprec.h>
+#include <wx/wx.h>
 #include "FlowNetwork.h"
 
 class MainPanel : public wxPanel {
